@@ -20,16 +20,21 @@ Currently tailored for NomifactoryCEU only (overclocking logic etc.) but I plan 
    git clone https://github.com/<your-user>/NomifactoryCEU_Calculator.git
    cd NomifactoryCEU_Calculator
    ```
-2. (Recommended) Create a virtual environment:
+
+2. (Recommended) Create and activate a virtual environment:
    ```bash
    python -m venv .venv
-   source .venv/bin/activate  # Windows: .venv\Scripts\activate
+   # macOS/Linux
+   source .venv/bin/activate
+   # Windows (PowerShell)
+   .venv\Scripts\Activate.ps1
    ```
-3. Install dependencies:
+
+3. Install dependencies from `requirements.txt`:
    ```bash
-   pip install pydantic orjson ttkbootstrap pillow
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
    ```
-   Skip `orjson`, `ttkbootstrap`, or `pillow` if you do not need the related features.
 
 Sample data lives under `data/` (example `items.json`, cached CSV, and `recipes.json`) and ready-made plans are stored in `plans/`. This is currently my personal recipe repository! I plan to include demo datafiles only in this repo for new users, but I don't yet know how to keep that separate from the actual repo (advice welcome).
 
