@@ -1,5 +1,11 @@
 [
   {
+    "item": "polyethylene_bar",
+    "rate": 0.23,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
     "item": "deepmoblearning_polymer_clay",
     "rate": 1000.0,
     "tier": "MV",
@@ -8,12 +14,6 @@
   {
     "item": "methane_mb",
     "rate": 1000.0,
-    "tier": "MV",
-    "overrides": {}
-  },
-  {
-    "item": "polyethylene_bar",
-    "rate": 0.23,
     "tier": "MV",
     "overrides": {}
   },

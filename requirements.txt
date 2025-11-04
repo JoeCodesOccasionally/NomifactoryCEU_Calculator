@@ -1,0 +1,9 @@
+pydantic>=2.0
+
+# Optional accelerators / features
+orjson>=3.0        # faster JSON (CLI/GUI fallback to stdlib if missing)
+ttkbootstrap>=1.10  # themed Tk widgets (GUI works without it)
+pillow>=9.0         # exporting plan canvas as PNG
+networkx>=3.0       # graph exports via src/core/graph.py
+pygraphviz>=1.10    # Graphviz export helper (requires system graphviz)
+

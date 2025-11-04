@@ -1,179 +1,242 @@
 {
-  "target_item": "deepmoblearning_polymer_clay",
-  "target_item_display": "Deepmoblearning Polymer Clay",
-  "target_rate_per_s": 1000.0,
+  "target_item": "polyethylene_bar",
+  "target_item_display": "Polyethylene Bar",
+  "target_rate_per_s": 0.23,
   "nodes": {
-    "item": "deepmoblearning_polymer_clay",
-    "item_display": "Deepmoblearning Polymer Clay",
-    "item_rate_per_s": 1000.0,
-    "recipe_id": "polymerclay",
-    "machine": "Alloy Smelter",
+    "item": "polyethylene_bar",
+    "item_display": "Polyethylene Bar",
+    "item_rate_per_s": 0.23,
+    "recipe_id": "polyethylene_bar",
+    "machine": "Fluid Solidifier",
     "machine_tier": "MV",
-    "machines_needed": 750,
-    "per_machine_ops_per_s": 0.3333333333333333,
-    "effective_time_s": 3.0,
+    "machines_needed": 1,
+    "per_machine_ops_per_s": 4.0,
+    "effective_time_s": 0.25,
     "effective_eut": 112.0,
     "overclocks": 2,
     "inputs": [
       [
-        "minecraft_clay",
-        250.0
-      ],
-      [
-        "thermalfoundation_material_895",
-        250.0
+        "liquid_polyethylene_mb",
+        33.120000000000005
       ]
     ],
     "children": [
       {
-        "item": "minecraft_clay",
-        "item_display": "Minecraft Clay",
-        "item_rate_per_s": 250.0,
-        "recipe_id": "clayblocks",
-        "machine": "Alloy Smelter",
-        "machine_tier": "MV",
-        "machines_needed": 125,
-        "per_machine_ops_per_s": 2.0,
-        "effective_time_s": 0.5,
-        "effective_eut": 150.0,
-        "overclocks": 0,
-        "inputs": [
-          [
-            "nomilabs_block_dust",
-            250.0
-          ],
-          [
-            "distilled_water_liquid_mb",
-            250000.0
-          ]
-        ],
-        "children": [
-          {
-            "item": "nomilabs_block_dust",
-            "item_display": "Nomilabs Block Dust",
-            "item_rate_per_s": 250.0,
-            "recipe_id": "<raw>",
-            "machine": "RAW",
-            "machine_tier": "MV",
-            "machines_needed": 0,
-            "per_machine_ops_per_s": 0.0,
-            "effective_time_s": 0.0,
-            "effective_eut": 0.0,
-            "overclocks": 0,
-            "inputs": [],
-            "children": []
-          },
-          {
-            "item": "distilled_water_liquid_mb",
-            "item_display": "Distilled Water Liquid (mb)",
-            "item_rate_per_s": 250000.0,
-            "recipe_id": "<raw>",
-            "machine": "RAW",
-            "machine_tier": "MV",
-            "machines_needed": 0,
-            "per_machine_ops_per_s": 0.0,
-            "effective_time_s": 0.0,
-            "effective_eut": 0.0,
-            "overclocks": 0,
-            "inputs": [],
-            "children": []
-          }
-        ]
-      },
-      {
-        "item": "thermalfoundation_material_895",
-        "item_display": "Thermalfoundation Material 895",
-        "item_rate_per_s": 250.0,
-        "recipe_id": "[thermalfoundation:material:895](thermalfoundation:material:895)",
+        "item": "liquid_polyethylene_mb",
+        "item_display": "Liquid Polyethylene (mb)",
+        "item_rate_per_s": 33.120000000000005,
+        "recipe_id": "Liquid Polyethylene_mb",
         "machine": "Chemical Reactor",
         "machine_tier": "MV",
-        "machines_needed": 1500,
-        "per_machine_ops_per_s": 0.16666666666666666,
-        "effective_time_s": 6.0,
-        "effective_eut": 75.0,
-        "overclocks": 0,
+        "machines_needed": 1,
+        "per_machine_ops_per_s": 0.3448275862068965,
+        "effective_time_s": 2.9000000000000004,
+        "effective_eut": 120.0,
+        "overclocks": 1,
         "inputs": [
           [
-            "minecraft_quartz",
-            250.0
+            "ethylene_mb",
+            22.080000000000002
           ],
           [
-            "resonant_ender_liquid_mb",
-            62500.0
+            "oxygen_gas_mb",
+            153.33333333333334
           ]
         ],
         "children": [
           {
-            "item": "minecraft_quartz",
-            "item_display": "Minecraft Quartz",
-            "item_rate_per_s": 250.0,
-            "recipe_id": "[minecraft:quartz](minecraft:quartz)",
-            "machine": "Electrolyser",
+            "item": "ethylene_mb",
+            "item_display": "Ethylene (mb)",
+            "item_rate_per_s": 22.080000000000002,
+            "recipe_id": "ethylene_mb",
+            "machine": "Distillery",
             "machine_tier": "MV",
-            "machines_needed": 450,
-            "per_machine_ops_per_s": 0.5555555555555556,
-            "effective_time_s": 1.8,
-            "effective_eut": 80.0,
+            "machines_needed": 1,
+            "per_machine_ops_per_s": 2.2222222222222223,
+            "effective_time_s": 0.45,
+            "effective_eut": 120.0,
             "overclocks": 1,
             "inputs": [
               [
-                "glass_block",
-                1000.0
+                "severely_steam_cracked_light_fuel_mb",
+                88.32000000000001
               ]
             ],
             "children": [
               {
-                "item": "glass_block",
-                "item_display": "Glass Block",
-                "item_rate_per_s": 1000.0,
-                "recipe_id": "[minecraft:glass](minecraft:glass)",
-                "machine": "Obsidian Furnace",
+                "item": "severely_steam_cracked_light_fuel_mb",
+                "item_display": "Severely Steam Cracked Light Fuel (mb)",
+                "item_rate_per_s": 88.32000000000001,
+                "recipe_id": "severely_steam_cracked_light_fuel_mb",
+                "machine": "Chemical Reactor",
                 "machine_tier": "MV",
-                "machines_needed": 1200,
-                "per_machine_ops_per_s": 0.8333333333333334,
-                "effective_time_s": 1.2,
-                "effective_eut": 0.0,
-                "overclocks": 0,
+                "machines_needed": 1,
+                "per_machine_ops_per_s": 0.23255813953488372,
+                "effective_time_s": 4.3,
+                "effective_eut": 120.0,
+                "overclocks": 1,
                 "inputs": [
                   [
-                    "minecraft_sand",
-                    1000.0
+                    "steam_mb",
+                    176.64000000000001
+                  ],
+                  [
+                    "light_fuel_mb",
+                    176.64000000000001
                   ]
                 ],
                 "children": [
                   {
-                    "item": "minecraft_sand",
-                    "item_display": "Minecraft Sand",
-                    "item_rate_per_s": 1000.0,
-                    "recipe_id": "[minecraft:sand](minecraft:sand)",
-                    "machine": "Forge Hammer",
+                    "item": "steam_mb",
+                    "item_display": "Steam (mb)",
+                    "item_rate_per_s": 176.64000000000001,
+                    "recipe_id": "<raw>",
+                    "machine": "RAW",
                     "machine_tier": "MV",
-                    "machines_needed": 250,
-                    "per_machine_ops_per_s": 4.0,
-                    "effective_time_s": 0.25,
-                    "effective_eut": 64.0,
+                    "machines_needed": 0,
+                    "per_machine_ops_per_s": 0.0,
+                    "effective_time_s": 0.0,
+                    "effective_eut": 0.0,
+                    "overclocks": 0,
+                    "inputs": [],
+                    "children": []
+                  },
+                  {
+                    "item": "light_fuel_mb",
+                    "item_display": "Light Fuel (mb)",
+                    "item_rate_per_s": 176.64000000000001,
+                    "recipe_id": "hydrogen_sulfide_mb",
+                    "machine": "Chemical Reactor",
+                    "machine_tier": "MV",
+                    "machines_needed": 1,
+                    "per_machine_ops_per_s": 0.3448275862068965,
+                    "effective_time_s": 2.9000000000000004,
+                    "effective_eut": 120.0,
                     "overclocks": 1,
                     "inputs": [
                       [
-                        "minecraft_gravel",
-                        1000.0
+                        "hydrogen_mb",
+                        29.44
+                      ],
+                      [
+                        "sulfuric_light_fuel_mb",
+                        176.64000000000001
                       ]
                     ],
                     "children": [
                       {
-                        "item": "minecraft_gravel",
-                        "item_display": "Minecraft Gravel",
-                        "item_rate_per_s": 1000.0,
-                        "recipe_id": "<raw>",
-                        "machine": "RAW",
+                        "item": "hydrogen_mb",
+                        "item_display": "Hydrogen (mb)",
+                        "item_rate_per_s": 29.44,
+                        "recipe_id": "hydrogen_mb",
+                        "machine": "Electrolyser",
                         "machine_tier": "MV",
-                        "machines_needed": 0,
-                        "per_machine_ops_per_s": 0.0,
-                        "effective_time_s": 0.0,
-                        "effective_eut": 0.0,
+                        "machines_needed": 1,
+                        "per_machine_ops_per_s": 2.5,
+                        "effective_time_s": 0.4,
+                        "effective_eut": 120.0,
+                        "overclocks": 1,
+                        "inputs": [
+                          [
+                            "methane_mb",
+                            7.36
+                          ]
+                        ],
+                        "children": [
+                          {
+                            "item": "methane_mb",
+                            "item_display": "Methane (mb)",
+                            "item_rate_per_s": 7.36,
+                            "recipe_id": "methane_mb",
+                            "machine": "Centrifuge",
+                            "machine_tier": "MV",
+                            "machines_needed": 1,
+                            "per_machine_ops_per_s": 0.5555555555555556,
+                            "effective_time_s": 1.8,
+                            "effective_eut": 80.0,
+                            "overclocks": 2,
+                            "inputs": [
+                              [
+                                "rotten_flesh",
+                                0.184
+                              ]
+                            ],
+                            "children": [
+                              {
+                                "item": "rotten_flesh",
+                                "item_display": "Rotten Flesh",
+                                "item_rate_per_s": 0.184,
+                                "recipe_id": "<raw>",
+                                "machine": "RAW",
+                                "machine_tier": "MV",
+                                "machines_needed": 0,
+                                "per_machine_ops_per_s": 0.0,
+                                "effective_time_s": 0.0,
+                                "effective_eut": 0.0,
+                                "overclocks": 0,
+                                "inputs": [],
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "item": "sulfuric_light_fuel_mb",
+                        "item_display": "Sulfuric Light Fuel (mb)",
+                        "item_rate_per_s": 176.64000000000001,
+                        "recipe_id": "sulfuric_light_fuel_mb",
+                        "machine": "Distillery",
+                        "machine_tier": "MV",
+                        "machines_needed": 8,
+                        "per_machine_ops_per_s": 0.5,
+                        "effective_time_s": 2.0,
+                        "effective_eut": 72.0,
                         "overclocks": 0,
-                        "inputs": [],
-                        "children": []
+                        "inputs": [
+                          [
+                            "heavy_oil_mb",
+                            392.53333333333336
+                          ]
+                        ],
+                        "children": [
+                          {
+                            "item": "heavy_oil_mb",
+                            "item_display": "Heavy Oil (mb)",
+                            "item_rate_per_s": 392.53333333333336,
+                            "recipe_id": "heavy_oil_mb",
+                            "machine": "Centrifuge",
+                            "machine_tier": "MV",
+                            "machines_needed": 1,
+                            "per_machine_ops_per_s": 0.4,
+                            "effective_time_s": 2.5,
+                            "effective_eut": 112.0,
+                            "overclocks": 2,
+                            "inputs": [
+                              [
+                                "oilsands_dust",
+                                0.39253333333333335
+                              ]
+                            ],
+                            "children": [
+                              {
+                                "item": "oilsands_dust",
+                                "item_display": "Oilsands Dust",
+                                "item_rate_per_s": 0.39253333333333335,
+                                "recipe_id": "<raw>",
+                                "machine": "RAW",
+                                "machine_tier": "MV",
+                                "machines_needed": 0,
+                                "per_machine_ops_per_s": 0.0,
+                                "effective_time_s": 0.0,
+                                "effective_eut": 0.0,
+                                "overclocks": 0,
+                                "inputs": [],
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
                       }
                     ]
                   }
@@ -182,38 +245,122 @@
             ]
           },
           {
-            "item": "resonant_ender_liquid_mb",
-            "item_display": "Resonant Ender Liquid (mb)",
-            "item_rate_per_s": 62500.0,
-            "recipe_id": "resonant_ender_liquid_mb",
-            "machine": "Extractor",
+            "item": "oxygen_gas_mb",
+            "item_display": "Oxygen Gas (mb)",
+            "item_rate_per_s": 153.33333333333334,
+            "recipe_id": "silicon",
+            "machine": "Electrolyser",
             "machine_tier": "MV",
-            "machines_needed": 188,
-            "per_machine_ops_per_s": 1.3333333333333333,
-            "effective_time_s": 0.75,
+            "machines_needed": 1,
+            "per_machine_ops_per_s": 0.9090909090909091,
+            "effective_time_s": 1.1,
             "effective_eut": 120.0,
             "overclocks": 1,
             "inputs": [
               [
-                "minecraft_ender_pearl",
-                250.0
+                "silicon_dioxide",
+                0.23000000000000004
               ]
             ],
             "children": [
               {
-                "item": "minecraft_ender_pearl",
-                "item_display": "Minecraft Ender Pearl",
-                "item_rate_per_s": 250.0,
-                "recipe_id": "[minecraft:ender_pearl](minecraft:ender_pearl)",
-                "machine": "Enderman Model (Self-Aware)",
+                "item": "silicon_dioxide",
+                "item_display": "Silicon Dioxide",
+                "item_rate_per_s": 0.23000000000000004,
+                "recipe_id": "silicon_dioxide",
+                "machine": "Centrifuge",
                 "machine_tier": "MV",
-                "machines_needed": 2084,
-                "per_machine_ops_per_s": 0.06666666666666667,
-                "effective_time_s": 15.0,
-                "effective_eut": 0.0,
-                "overclocks": 0,
-                "inputs": [],
-                "children": []
+                "machines_needed": 1,
+                "per_machine_ops_per_s": 1.8181818181818181,
+                "effective_time_s": 0.55,
+                "effective_eut": 120.0,
+                "overclocks": 1,
+                "inputs": [
+                  [
+                    "glass_dust",
+                    0.23000000000000004
+                  ]
+                ],
+                "children": [
+                  {
+                    "item": "glass_dust",
+                    "item_display": "Glass Dust",
+                    "item_rate_per_s": 0.23000000000000004,
+                    "recipe_id": "glass_dust",
+                    "machine": "Macerator",
+                    "machine_tier": "MV",
+                    "machines_needed": 1,
+                    "per_machine_ops_per_s": 6.666666666666666,
+                    "effective_time_s": 0.15000000000000002,
+                    "effective_eut": 128.0,
+                    "overclocks": 3,
+                    "inputs": [
+                      [
+                        "glass_block",
+                        0.23000000000000004
+                      ]
+                    ],
+                    "children": [
+                      {
+                        "item": "glass_block",
+                        "item_display": "Glass Block",
+                        "item_rate_per_s": 0.23000000000000004,
+                        "recipe_id": "[minecraft:glass](minecraft:glass)",
+                        "machine": "Obsidian Furnace",
+                        "machine_tier": "MV",
+                        "machines_needed": 1,
+                        "per_machine_ops_per_s": 0.8333333333333334,
+                        "effective_time_s": 1.2,
+                        "effective_eut": 0.0,
+                        "overclocks": 0,
+                        "inputs": [
+                          [
+                            "minecraft_sand",
+                            0.23000000000000004
+                          ]
+                        ],
+                        "children": [
+                          {
+                            "item": "minecraft_sand",
+                            "item_display": "Minecraft Sand",
+                            "item_rate_per_s": 0.23000000000000004,
+                            "recipe_id": "[minecraft:sand](minecraft:sand)",
+                            "machine": "Forge Hammer",
+                            "machine_tier": "MV",
+                            "machines_needed": 1,
+                            "per_machine_ops_per_s": 4.0,
+                            "effective_time_s": 0.25,
+                            "effective_eut": 64.0,
+                            "overclocks": 1,
+                            "inputs": [
+                              [
+                                "minecraft_gravel",
+                                0.23000000000000004
+                              ]
+                            ],
+                            "children": [
+                              {
+                                "item": "minecraft_gravel",
+                                "item_display": "Minecraft Gravel",
+                                "item_rate_per_s": 0.23000000000000004,
+                                "recipe_id": "<raw>",
+                                "machine": "RAW",
+                                "machine_tier": "MV",
+                                "machines_needed": 0,
+                                "per_machine_ops_per_s": 0.0,
+                                "effective_time_s": 0.0,
+                                "effective_eut": 0.0,
+                                "overclocks": 0,
+                                "inputs": [],
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -222,34 +369,38 @@
     ]
   },
   "summary": {
-    "Alloy Smelter [MV]": {
-      "machines": 875.0,
-      "eu_t": 102750.0
+    "Fluid Solidifier [MV]": {
+      "machines": 1.0,
+      "eu_t": 112.0
     },
     "Chemical Reactor [MV]": {
-      "machines": 1500.0,
-      "eu_t": 112500.0
+      "machines": 3.0,
+      "eu_t": 360.0
+    },
+    "Distillery [MV]": {
+      "machines": 9.0,
+      "eu_t": 696.0
     },
     "Electrolyser [MV]": {
-      "machines": 450.0,
-      "eu_t": 36000.0
+      "machines": 2.0,
+      "eu_t": 240.0
+    },
+    "Centrifuge [MV]": {
+      "machines": 3.0,
+      "eu_t": 312.0
+    },
+    "Macerator [MV]": {
+      "machines": 1.0,
+      "eu_t": 128.0
     },
     "Obsidian Furnace [MV]": {
-      "machines": 1200.0,
+      "machines": 1.0,
       "eu_t": 0.0
     },
     "Forge Hammer [MV]": {
-      "machines": 250.0,
-      "eu_t": 16000.0
-    },
-    "Extractor [MV]": {
-      "machines": 188.0,
-      "eu_t": 22560.0
-    },
-    "Enderman Model (Self-Aware) [MV]": {
-      "machines": 2084.0,
-      "eu_t": 0.0
+      "machines": 1.0,
+      "eu_t": 64.0
     }
   },
-  "timestamp": 1762231337.9211764
+  "timestamp": 1762232168.7812705
 }
