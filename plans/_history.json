@@ -1,0 +1,88 @@
+[
+  {
+    "item": "deepmoblearning_polymer_clay",
+    "rate": 1000.0,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "methane_mb",
+    "rate": 1000.0,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.23,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.1,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.25,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.3,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.2,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 1.0,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "liquid_polyethylene_mb",
+    "rate": 100.0,
+    "tier": "LV",
+    "overrides": {}
+  },
+  {
+    "item": "Liquid Polyethylene_mb",
+    "rate": 100.0,
+    "tier": "LV",
+    "overrides": {}
+  },
+  {
+    "item": "<deepmoblearning:polymer_clay>",
+    "rate": 0.9333,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "<deepmoblearning:polymer_clay>",
+    "rate": 0.9333,
+    "tier": "LV",
+    "overrides": {}
+  },
+  {
+    "item": "<deepmoblearning:polymer_clay>",
+    "rate": 0.9333,
+    "tier": "LV",
+    "overrides": {
+      "<thermalfoundation:material:895>": "HV"
+    }
+  },
+  {
+    "item": "<minecraft:ender_pearl>",
+    "rate": 0.233325,
+    "tier": "LV",
+    "overrides": {}
+  }
+]

@@ -1,0 +1,356 @@
+{
+  "recipes": [
+    {
+      "id": "polymerclay",
+      "machine": "Alloy Smelter",
+      "time_s": 12.0,
+      "inputs": {
+        "minecraft_clay": 1.0,
+        "thermalfoundation_material_895": 1.0
+      },
+      "outputs": {
+        "deepmoblearning_polymer_clay": 4.0
+      },
+      "base_eut": 7.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "clayblocks",
+      "machine": "Alloy Smelter",
+      "time_s": 0.5,
+      "inputs": {
+        "nomilabs_block_dust": 1.0,
+        "distilled_water_liquid_mb": 1000.0
+      },
+      "outputs": {
+        "minecraft_clay": 1.0
+      },
+      "base_eut": 150.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "[thermalfoundation:material:895](thermalfoundation:material:895)",
+      "machine": "Chemical Reactor",
+      "time_s": 6.0,
+      "inputs": {
+        "minecraft_quartz": 1.0,
+        "resonant_ender_liquid_mb": 250.0
+      },
+      "outputs": {
+        "thermalfoundation_material_895": 1.0
+      },
+      "base_eut": 75.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "resonant_ender_liquid_mb",
+      "machine": "Extractor",
+      "time_s": 2.0,
+      "inputs": {
+        "minecraft_ender_pearl": 1.0
+      },
+      "outputs": {
+        "resonant_ender_liquid_mb": 250.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "[minecraft:ender_pearl](minecraft:ender_pearl)",
+      "machine": "Enderman Model (Self-Aware)",
+      "time_s": 15.0,
+      "inputs": {},
+      "outputs": {
+        "minecraft_ender_pearl": 1.8
+      },
+      "base_eut": 512.0,
+      "base_voltage": "LV",
+      "gt_recipe": false,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "[minecraft:quartz](minecraft:quartz)",
+      "machine": "Electrolyser",
+      "time_s": 5.0,
+      "inputs": {
+        "glass_block": 4.0
+      },
+      "outputs": {
+        "minecraft_quartz": 1.0
+      },
+      "base_eut": 20.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "[minecraft:glass](minecraft:glass)",
+      "machine": "Obsidian Furnace",
+      "time_s": 1.2,
+      "inputs": {
+        "minecraft_sand": 1.0
+      },
+      "outputs": {
+        "glass_block": 1.0
+      },
+      "base_eut": null,
+      "base_voltage": "LV",
+      "gt_recipe": false,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "[minecraft:sand](minecraft:sand)",
+      "machine": "Forge Hammer",
+      "time_s": 0.5,
+      "inputs": {
+        "minecraft_gravel": 1.0
+      },
+      "outputs": {
+        "minecraft_sand": 1.0
+      },
+      "base_eut": 16.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "heavy_oil_mb",
+      "machine": "Centrifuge",
+      "time_s": 10.0,
+      "inputs": {
+        "oilsands_dust": 1.0
+      },
+      "outputs": {
+        "heavy_oil_mb": 1000.0
+      },
+      "base_eut": 7.0,
+      "base_voltage": "ULV",
+      "gt_recipe": true,
+      "operating_voltage": "ULV",
+      "notes": null
+    },
+    {
+      "id": "sulfuric_light_fuel_mb",
+      "machine": "Distillery",
+      "time_s": 2.0,
+      "inputs": {
+        "heavy_oil_mb": 100.0
+      },
+      "outputs": {
+        "sulfuric_light_fuel_mb": 45.0
+      },
+      "base_eut": 72.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "MV",
+      "notes": null
+    },
+    {
+      "id": "hydrogen_sulfide_mb",
+      "machine": "Chemical Reactor",
+      "time_s": 8.0,
+      "inputs": {
+        "hydrogen_mb": 2000.0,
+        "sulfuric_light_fuel_mb": 12000.0
+      },
+      "outputs": {
+        "hydrogen_sulfide_mb": 1000.0,
+        "light_fuel_mb": 12000.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "severely_steam_cracked_light_fuel_mb",
+      "machine": "Chemical Reactor",
+      "time_s": 12.0,
+      "inputs": {
+        "steam_mb": 1000.0,
+        "light_fuel_mb": 1000.0
+      },
+      "outputs": {
+        "severely_steam_cracked_light_fuel_mb": 500.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "ethylene_mb",
+      "machine": "Distillery",
+      "time_s": 1.2,
+      "inputs": {
+        "severely_steam_cracked_light_fuel_mb": 100.0
+      },
+      "outputs": {
+        "ethylene_mb": 25.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "methane_mb",
+      "machine": "Centrifuge",
+      "time_s": 7.2,
+      "inputs": {
+        "rotten_flesh": 1.0
+      },
+      "outputs": {
+        "methane_mb": 40.0
+      },
+      "base_eut": 5.0,
+      "base_voltage": "ULV",
+      "gt_recipe": true,
+      "operating_voltage": "ULV",
+      "notes": null
+    },
+    {
+      "id": "hydrogen_mb",
+      "machine": "Electrolyser",
+      "time_s": 1.0,
+      "inputs": {
+        "methane_mb": 1000.0
+      },
+      "outputs": {
+        "hydrogen_mb": 4000.0,
+        "carbon_dust": 1.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "silicon_dioxide",
+      "machine": "Centrifuge",
+      "time_s": 1.5,
+      "inputs": {
+        "glass_dust": 1.0
+      },
+      "outputs": {
+        "silicon_dioxide": 1.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "glass_dust",
+      "machine": "Macerator",
+      "time_s": 1.0,
+      "inputs": {
+        "glass_block": 1.0
+      },
+      "outputs": {
+        "glass_dust": 1.0
+      },
+      "base_eut": 2.0,
+      "base_voltage": "ULV",
+      "gt_recipe": true,
+      "operating_voltage": "ULV",
+      "notes": null
+    },
+    {
+      "id": "silicon",
+      "machine": "Electrolyser",
+      "time_s": 3.0,
+      "inputs": {
+        "silicon_dioxide": 3.0
+      },
+      "outputs": {
+        "silicon": 1.0,
+        "oxygen_gas_mb": 2000.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "Liquid Polyethylene_mb",
+      "machine": "Chemical Reactor",
+      "time_s": 8.0,
+      "inputs": {
+        "ethylene_mb": 144.0,
+        "oxygen_gas_mb": 1000.0
+      },
+      "outputs": {
+        "liquid_polyethylene_mb": 216.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "polyethylene_bar",
+      "machine": "Fluid Solidifier",
+      "time_s": 1.0,
+      "inputs": {
+        "liquid_polyethylene_mb": 144.0
+      },
+      "outputs": {
+        "polyethylene_bar": 1.0
+      },
+      "base_eut": 7.0,
+      "base_voltage": "ULV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    }
+  ],
+  "active_by_output": {
+    "deepmoblearning_polymer_clay": "polymerclay",
+    "minecraft_clay": "clayblocks",
+    "thermalfoundation_material_895": "[thermalfoundation:material:895](thermalfoundation:material:895)",
+    "resonant_ender_liquid_mb": "resonant_ender_liquid_mb",
+    "minecraft_ender_pearl": "[minecraft:ender_pearl](minecraft:ender_pearl)",
+    "minecraft_quartz": "[minecraft:quartz](minecraft:quartz)",
+    "glass_block": "[minecraft:glass](minecraft:glass)",
+    "minecraft_sand": "[minecraft:sand](minecraft:sand)",
+    "heavy_oil_mb": "heavy_oil_mb",
+    "sulfuric_light_fuel_mb": "sulfuric_light_fuel_mb",
+    "hydrogen_sulfide_mb": "hydrogen_sulfide_mb",
+    "light_fuel_mb": "hydrogen_sulfide_mb",
+    "severely_steam_cracked_light_fuel_mb": "severely_steam_cracked_light_fuel_mb",
+    "ethylene_mb": "ethylene_mb",
+    "oxygen_gas_mb": "silicon",
+    "methane_mb": "methane_mb",
+    "hydrogen_mb": "hydrogen_mb",
+    "carbon_dust": "hydrogen_mb",
+    "silicon_dioxide": "silicon_dioxide",
+    "glass_dust": "glass_dust",
+    "silicon": "silicon",
+    "liquid_polyethylene_mb": "Liquid Polyethylene_mb",
+    "polyethylene_bar": "polyethylene_bar"
+  }
+}

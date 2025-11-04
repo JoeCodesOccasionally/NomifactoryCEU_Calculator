@@ -1,0 +1,45 @@
+{
+  "target_item": "<deepmoblearning:polymer_clay>,Pulsating Polymer Clay",
+  "target_rate_per_s": 15.0,
+  "nodes": {
+    "item": "<deepmoblearning:polymer_clay>,Pulsating Polymer Clay",
+    "item_rate_per_s": 15.0,
+    "recipe_id": "pc",
+    "machine": "AlloySmelter",
+    "machine_tier": "LV",
+    "machines_needed": 4,
+    "per_machine_ops_per_s": 1.0,
+    "effective_time_s": 1.0,
+    "effective_eut": 30.0,
+    "overclocks": 0,
+    "inputs": [
+      [
+        "deepmoblearning",
+        3.75
+      ]
+    ],
+    "children": [
+      {
+        "item": "deepmoblearning",
+        "item_rate_per_s": 3.75,
+        "recipe_id": "<none>",
+        "machine": "<raw input>",
+        "machine_tier": "LV",
+        "machines_needed": 0,
+        "per_machine_ops_per_s": 0.0,
+        "effective_time_s": 0.0,
+        "effective_eut": 0.0,
+        "overclocks": 0,
+        "inputs": [],
+        "children": []
+      }
+    ]
+  },
+  "summary": {
+    "AlloySmelter [LV]": {
+      "machines": 4,
+      "eu_t": 120.0
+    }
+  },
+  "timestamp": 1761711348.4504745
+}

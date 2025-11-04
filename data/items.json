@@ -1,0 +1,178 @@
+{
+  "items": [
+    {
+      "registry": "carbon_dust",
+      "display": "Carbon Dust",
+      "item_id": "carbon_dust",
+      "aliases": []
+    },
+    {
+      "registry": "deepmoblearning_polymer_clay",
+      "display": "Deepmoblearning Polymer Clay",
+      "item_id": "deepmoblearning_polymer_clay",
+      "aliases": []
+    },
+    {
+      "registry": "distilled_water_liquid_mb",
+      "display": "Distilled Water Liquid (mb)",
+      "item_id": "distilled_water_liquid_mb",
+      "aliases": []
+    },
+    {
+      "registry": "ethylene_mb",
+      "display": "Ethylene (mb)",
+      "item_id": "ethylene_mb",
+      "aliases": []
+    },
+    {
+      "registry": "glass_block",
+      "display": "Glass Block",
+      "item_id": "glass_block",
+      "aliases": []
+    },
+    {
+      "registry": "glass_dust",
+      "display": "Glass Dust",
+      "item_id": "glass_dust",
+      "aliases": []
+    },
+    {
+      "registry": "heavy_oil_mb",
+      "display": "Heavy Oil (mb)",
+      "item_id": "heavy_oil_mb",
+      "aliases": []
+    },
+    {
+      "registry": "hydrogen_mb",
+      "display": "Hydrogen (mb)",
+      "item_id": "hydrogen_mb",
+      "aliases": []
+    },
+    {
+      "registry": "hydrogen_sulfide_mb",
+      "display": "Hydrogen Sulfide (mb)",
+      "item_id": "hydrogen_sulfide_mb",
+      "aliases": []
+    },
+    {
+      "registry": "light_fuel_mb",
+      "display": "Light Fuel (mb)",
+      "item_id": "light_fuel_mb",
+      "aliases": []
+    },
+    {
+      "registry": "liquid_polyethylene_mb",
+      "display": "Liquid Polyethylene (mb)",
+      "item_id": "liquid_polyethylene_mb",
+      "aliases": []
+    },
+    {
+      "registry": "methane_mb",
+      "display": "Methane (mb)",
+      "item_id": "methane_mb",
+      "aliases": []
+    },
+    {
+      "registry": "minecraft_clay",
+      "display": "Minecraft Clay",
+      "item_id": "minecraft_clay",
+      "aliases": []
+    },
+    {
+      "registry": "minecraft_ender_pearl",
+      "display": "Minecraft Ender Pearl",
+      "item_id": "minecraft_ender_pearl",
+      "aliases": []
+    },
+    {
+      "registry": "minecraft_gravel",
+      "display": "Minecraft Gravel",
+      "item_id": "minecraft_gravel",
+      "aliases": []
+    },
+    {
+      "registry": "minecraft_quartz",
+      "display": "Minecraft Quartz",
+      "item_id": "minecraft_quartz",
+      "aliases": []
+    },
+    {
+      "registry": "minecraft_sand",
+      "display": "Minecraft Sand",
+      "item_id": "minecraft_sand",
+      "aliases": []
+    },
+    {
+      "registry": "nomilabs_block_dust",
+      "display": "Nomilabs Block Dust",
+      "item_id": "nomilabs_block_dust",
+      "aliases": []
+    },
+    {
+      "registry": "oilsands_dust",
+      "display": "Oilsands Dust",
+      "item_id": "oilsands_dust",
+      "aliases": []
+    },
+    {
+      "registry": "oxygen_gas_mb",
+      "display": "Oxygen Gas (mb)",
+      "item_id": "oxygen_gas_mb",
+      "aliases": []
+    },
+    {
+      "registry": "polyethylene_bar",
+      "display": "Polyethylene Bar",
+      "item_id": "polyethylene_bar",
+      "aliases": []
+    },
+    {
+      "registry": "resonant_ender_liquid_mb",
+      "display": "Resonant Ender Liquid (mb)",
+      "item_id": "resonant_ender_liquid_mb",
+      "aliases": []
+    },
+    {
+      "registry": "rotten_flesh",
+      "display": "Rotten Flesh",
+      "item_id": "rotten_flesh",
+      "aliases": []
+    },
+    {
+      "registry": "severely_steam_cracked_light_fuel_mb",
+      "display": "Severely Steam Cracked Light Fuel (mb)",
+      "item_id": "severely_steam_cracked_light_fuel_mb",
+      "aliases": []
+    },
+    {
+      "registry": "silicon",
+      "display": "Silicon",
+      "item_id": "silicon",
+      "aliases": []
+    },
+    {
+      "registry": "silicon_dioxide",
+      "display": "Silicon Dioxide",
+      "item_id": "silicon_dioxide",
+      "aliases": []
+    },
+    {
+      "registry": "steam_mb",
+      "display": "Steam (mb)",
+      "item_id": "steam_mb",
+      "aliases": []
+    },
+    {
+      "registry": "sulfuric_light_fuel_mb",
+      "display": "Sulfuric Light Fuel (mb)",
+      "item_id": "sulfuric_light_fuel_mb",
+      "aliases": []
+    },
+    {
+      "registry": "thermalfoundation_material_895",
+      "display": "Thermalfoundation Material 895",
+      "item_id": "thermalfoundation_material_895",
+      "aliases": []
+    }
+  ]
+}
