@@ -1,15 +1,57 @@
 {
   "items": [
     {
+      "registry": "advanced_integrated_circuit_hv_circuit",
+      "display": "Advanced Integrated Circuit Hv Circuit",
+      "item_id": "advanced_integrated_circuit_hv_circuit",
+      "aliases": []
+    },
+    {
+      "registry": "annealed_copper_bolt",
+      "display": "Annealed Copper Bolt",
+      "item_id": "annealed_copper_bolt",
+      "aliases": []
+    },
+    {
+      "registry": "annealed_copper_ingot",
+      "display": "Annealed Copper Ingot",
+      "item_id": "annealed_copper_ingot",
+      "aliases": []
+    },
+    {
+      "registry": "antimony_dust",
+      "display": "Antimony Dust",
+      "item_id": "antimony_dust",
+      "aliases": []
+    },
+    {
       "registry": "carbon_dust",
       "display": "Carbon Dust",
       "item_id": "carbon_dust",
       "aliases": []
     },
     {
+      "registry": "centrifuged_rubber_wood",
+      "display": "Centrifuged Rubber Wood",
+      "item_id": "centrifuged_rubber_wood",
+      "aliases": []
+    },
+    {
+      "registry": "cobblestone",
+      "display": "Cobblestone",
+      "item_id": "cobblestone",
+      "aliases": []
+    },
+    {
       "registry": "deepmoblearning_polymer_clay",
       "display": "Deepmoblearning Polymer Clay",
       "item_id": "deepmoblearning_polymer_clay",
+      "aliases": []
+    },
+    {
+      "registry": "diode",
+      "display": "Diode",
+      "item_id": "diode",
       "aliases": []
     },
     {
@@ -25,6 +67,48 @@
       "aliases": []
     },
     {
+      "registry": "fine_annealed_copper_wire",
+      "display": "Fine Annealed Copper Wire",
+      "item_id": "fine_annealed_copper_wire",
+      "aliases": []
+    },
+    {
+      "registry": "fine_copper_wire",
+      "display": "Fine Copper Wire",
+      "item_id": "fine_copper_wire",
+      "aliases": []
+    },
+    {
+      "registry": "fine_electrum_wire",
+      "display": "Fine Electrum Wire",
+      "item_id": "fine_electrum_wire",
+      "aliases": []
+    },
+    {
+      "registry": "fine_gold_wire",
+      "display": "Fine Gold Wire",
+      "item_id": "fine_gold_wire",
+      "aliases": []
+    },
+    {
+      "registry": "fine_platinum_wire",
+      "display": "Fine Platinum Wire",
+      "item_id": "fine_platinum_wire",
+      "aliases": []
+    },
+    {
+      "registry": "fine_tin_wire",
+      "display": "Fine Tin Wire",
+      "item_id": "fine_tin_wire",
+      "aliases": []
+    },
+    {
+      "registry": "gallium_arsenide_dust",
+      "display": "Gallium Arsenide Dust",
+      "item_id": "gallium_arsenide_dust",
+      "aliases": []
+    },
+    {
       "registry": "glass_block",
       "display": "Glass Block",
       "item_id": "glass_block",
@@ -34,6 +118,24 @@
       "registry": "glass_dust",
       "display": "Glass Dust",
       "item_id": "glass_dust",
+      "aliases": []
+    },
+    {
+      "registry": "glue",
+      "display": "Glue",
+      "item_id": "glue",
+      "aliases": []
+    },
+    {
+      "registry": "good_circuit_board",
+      "display": "Good Circuit Board",
+      "item_id": "good_circuit_board",
+      "aliases": []
+    },
+    {
+      "registry": "good_integrated_circuit_mv_circuit",
+      "display": "Good Integrated Circuit Mv Circuit",
+      "item_id": "good_integrated_circuit_mv_circuit",
       "aliases": []
     },
     {
@@ -55,6 +157,30 @@
       "aliases": []
     },
     {
+      "registry": "integrated_circuit",
+      "display": "Integrated Circuit",
+      "item_id": "integrated_circuit",
+      "aliases": []
+    },
+    {
+      "registry": "integrated_logic_circuit_lv_circuit",
+      "display": "Integrated Logic Circuit Lv Circuit",
+      "item_id": "integrated_logic_circuit_lv_circuit",
+      "aliases": []
+    },
+    {
+      "registry": "integrated_logic_circuit_wafer",
+      "display": "Integrated Logic Circuit Wafer",
+      "item_id": "integrated_logic_circuit_wafer",
+      "aliases": []
+    },
+    {
+      "registry": "lead_dust",
+      "display": "Lead Dust",
+      "item_id": "lead_dust",
+      "aliases": []
+    },
+    {
       "registry": "light_fuel_mb",
       "display": "Light Fuel (mb)",
       "item_id": "light_fuel_mb",
@@ -64,6 +190,24 @@
       "registry": "liquid_polyethylene_mb",
       "display": "Liquid Polyethylene (mb)",
       "item_id": "liquid_polyethylene_mb",
+      "aliases": []
+    },
+    {
+      "registry": "liquid_rubber_mb",
+      "display": "Liquid Rubber (mb)",
+      "item_id": "liquid_rubber_mb",
+      "aliases": []
+    },
+    {
+      "registry": "liquid_soldering_alloy_mb",
+      "display": "Liquid Soldering Alloy (mb)",
+      "item_id": "liquid_soldering_alloy_mb",
+      "aliases": []
+    },
+    {
+      "registry": "lubricant_mb",
+      "display": "Lubricant (mb)",
+      "item_id": "lubricant_mb",
       "aliases": []
     },
     {
@@ -103,6 +247,12 @@
       "aliases": []
     },
     {
+      "registry": "monocrystalline_silicone_boul",
+      "display": "Monocrystalline Silicone Boul",
+      "item_id": "monocrystalline_silicone_boul",
+      "aliases": []
+    },
+    {
       "registry": "nomilabs_block_dust",
       "display": "Nomilabs Block Dust",
       "item_id": "nomilabs_block_dust",
@@ -121,9 +271,39 @@
       "aliases": []
     },
     {
+      "registry": "plant_ball",
+      "display": "Plant Ball",
+      "item_id": "plant_ball",
+      "aliases": []
+    },
+    {
       "registry": "polyethylene_bar",
       "display": "Polyethylene Bar",
       "item_id": "polyethylene_bar",
+      "aliases": []
+    },
+    {
+      "registry": "ram",
+      "display": "Ram",
+      "item_id": "ram",
+      "aliases": []
+    },
+    {
+      "registry": "ram_wafer",
+      "display": "Ram Wafer",
+      "item_id": "ram_wafer",
+      "aliases": []
+    },
+    {
+      "registry": "raw_rubber_pulp",
+      "display": "Raw Rubber Pulp",
+      "item_id": "raw_rubber_pulp",
+      "aliases": []
+    },
+    {
+      "registry": "resistor",
+      "display": "Resistor",
+      "item_id": "resistor",
       "aliases": []
     },
     {
@@ -136,6 +316,12 @@
       "registry": "rotten_flesh",
       "display": "Rotten Flesh",
       "item_id": "rotten_flesh",
+      "aliases": []
+    },
+    {
+      "registry": "rubber_wood",
+      "display": "Rubber Wood",
+      "item_id": "rubber_wood",
       "aliases": []
     },
     {
@@ -157,9 +343,69 @@
       "aliases": []
     },
     {
+      "registry": "silicon_dust",
+      "display": "Silicon Dust",
+      "item_id": "silicon_dust",
+      "aliases": []
+    },
+    {
+      "registry": "silicon_plate",
+      "display": "Silicon Plate",
+      "item_id": "silicon_plate",
+      "aliases": []
+    },
+    {
+      "registry": "silicon_wafer",
+      "display": "Silicon Wafer",
+      "item_id": "silicon_wafer",
+      "aliases": []
+    },
+    {
+      "registry": "silver_bolt",
+      "display": "Silver Bolt",
+      "item_id": "silver_bolt",
+      "aliases": []
+    },
+    {
+      "registry": "small_pile_of_gallium_arsenide",
+      "display": "Small Pile Of Gallium Arsenide",
+      "item_id": "small_pile_of_gallium_arsenide",
+      "aliases": []
+    },
+    {
+      "registry": "smd_diode",
+      "display": "Smd Diode",
+      "item_id": "smd_diode",
+      "aliases": []
+    },
+    {
+      "registry": "smd_resistor",
+      "display": "Smd Resistor",
+      "item_id": "smd_resistor",
+      "aliases": []
+    },
+    {
+      "registry": "soldering_alloy_dust",
+      "display": "Soldering Alloy Dust",
+      "item_id": "soldering_alloy_dust",
+      "aliases": []
+    },
+    {
       "registry": "steam_mb",
       "display": "Steam (mb)",
       "item_id": "steam_mb",
+      "aliases": []
+    },
+    {
+      "registry": "sticky_resin",
+      "display": "Sticky Resin",
+      "item_id": "sticky_resin",
+      "aliases": []
+    },
+    {
+      "registry": "sulfur_dust",
+      "display": "Sulfur Dust",
+      "item_id": "sulfur_dust",
       "aliases": []
     },
     {
@@ -172,6 +418,36 @@
       "registry": "thermalfoundation_material_895",
       "display": "Thermalfoundation Material 895",
       "item_id": "thermalfoundation_material_895",
+      "aliases": []
+    },
+    {
+      "registry": "tin_bolt",
+      "display": "Tin Bolt",
+      "item_id": "tin_bolt",
+      "aliases": []
+    },
+    {
+      "registry": "tin_dust",
+      "display": "Tin Dust",
+      "item_id": "tin_dust",
+      "aliases": []
+    },
+    {
+      "registry": "tin_ingot",
+      "display": "Tin Ingot",
+      "item_id": "tin_ingot",
+      "aliases": []
+    },
+    {
+      "registry": "transistor",
+      "display": "Transistor",
+      "item_id": "transistor",
+      "aliases": []
+    },
+    {
+      "registry": "water_mb",
+      "display": "Water (mb)",
+      "item_id": "water_mb",
       "aliases": []
     }
   ]

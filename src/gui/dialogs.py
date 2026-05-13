@@ -327,7 +327,260 @@ class ManageActivesDialog(tk.Toplevel):
         for out, rid in sorted(self.book.active_by_output.items()):
             display = resolver(out) if callable(resolver) else out
             self.tree.insert("", "end", values=(out, display, rid))
+class ManageItemsDialog(tk.Toplevel):
+    def __init__(self, master):
+        super().__init__(master)
+        self.title("Manage Items")
+        self.minsize(760, 420)
+        self.resizable(True, True)
+        self.changed = False
 
+        self._inventory: Dict[str, Dict[str, object]] = {}
+
+        frame = ttk.Frame(self, padding=10)
+        frame.grid(sticky="nsew")
+        self.rowconfigure(0, weight=1)
+        self.columnconfigure(0, weight=1)
+
+        cols = ("display", "item_id", "recipes", "issues")
+        self.tree = ttk.Treeview(frame, columns=cols, show="headings", selectmode="browse")
+        self.tree.heading("display", text="Display")
+        self.tree.heading("item_id", text="Item ID")
+        self.tree.heading("recipes", text="# Recipes For")
+        self.tree.heading("issues", text="Notes")
+        self.tree.column("display", width=260, anchor="w")
+        self.tree.column("item_id", width=210, anchor="w")
+        self.tree.column("recipes", width=100, anchor="center")
+        self.tree.column("issues", width=320, anchor="w")
+        self.tree.grid(row=0, column=0, sticky="nsew")
+        ysb = ttk.Scrollbar(frame, orient="vertical", command=self.tree.yview)
+        self.tree.configure(yscrollcommand=ysb.set)
+        ysb.grid(row=0, column=1, sticky="ns")
+        frame.rowconfigure(0, weight=1)
+        frame.columnconfigure(0, weight=1)
+
+        self.tree.tag_configure("priority2", background="#ffecec")
+        self.tree.tag_configure("priority1", background="#fff6db")
+
+        self.tree.bind("<Button-3>", self._open_context_menu)
+        self.tree.bind("<Double-Button-1>", lambda e: self._rename_selected())
+        self.tree.bind("<Return>", lambda e: self._rename_selected())
+
+        btns = ttk.Frame(frame)
+        btns.grid(row=1, column=0, columnspan=2, sticky="ew", pady=(8, 0))
+        ttk.Button(btns, text="Rename…", command=self._rename_selected).pack(side="left")
+        ttk.Button(btns, text="Merge…", command=self._merge_selected).pack(side="left", padx=(6, 0))
+        ttk.Button(btns, text="Close", command=self.destroy).pack(side="right")
+
+        self.summary = ttk.Label(frame, text="")
+        self.summary.grid(row=2, column=0, columnspan=2, sticky="w", pady=(6, 0))
+
+        self._refresh()
+        self.grab_set()
+        self.tree.focus_set()
+
+    def _refresh(self, select_id: Optional[str] = None):
+        inventory = self.master.get_item_inventory()
+        previous_selection = self.tree.selection()
+        for iid in self.tree.get_children():
+            self.tree.delete(iid)
+
+        self._inventory = {entry["item_id"]: entry for entry in inventory}
+        flagged = sum(1 for entry in inventory if entry["priority"] > 0)
+
+        for entry in inventory:
+            tags: List[str] = []
+            if entry["priority"] >= 2:
+                tags.append("priority2")
+            elif entry["priority"] == 1:
+                tags.append("priority1")
+            values = (
+                entry["display"],
+                entry["item_id"],
+                str(entry["recipe_count"]),
+                entry.get("issue_text") or "",
+            )
+            self.tree.insert("", "end", iid=entry["item_id"], values=values, tags=tags)
+
+        target_selection = select_id or (previous_selection[0] if previous_selection else None)
+        if target_selection and target_selection in self._inventory:
+            self.tree.selection_set(target_selection)
+            self.tree.focus(target_selection)
+
+        self.summary.configure(
+            text=f"{len(inventory)} items — {flagged} flagged for review. Right-click for actions."
+        )
+
+    def _selected_item_id(self) -> Optional[str]:
+        sel = self.tree.selection()
+        return sel[0] if sel else None
+
+    def _selected_entry(self) -> Optional[Dict[str, object]]:
+        iid = self._selected_item_id()
+        if not iid:
+            return None
+        return self._inventory.get(iid)
+
+    def _open_context_menu(self, event):
+        row = self.tree.identify_row(event.y)
+        if not row:
+            return
+        self.tree.selection_set(row)
+        menu = tk.Menu(self, tearoff=0)
+        menu.add_command(label="Rename…", command=self._rename_selected)
+        menu.add_command(label="Merge…", command=self._merge_selected)
+        menu.add_separator()
+        menu.add_command(label="Copy Display", command=lambda: self._copy_selected("display"))
+        menu.add_command(label="Copy Item ID", command=lambda: self._copy_selected("item_id"))
+        try:
+            menu.tk_popup(event.x_root, event.y_root)
+        finally:
+            menu.grab_release()
+
+    def _copy_selected(self, key: str):
+        entry = self._selected_entry()
+        if not entry:
+            return
+        value = entry.get(key)
+        if value is None:
+            return
+        self.clipboard_clear()
+        self.clipboard_append(str(value))
+
+    def _rename_selected(self):
+        entry = self._selected_entry()
+        if not entry:
+            messagebox.showinfo("Rename Item", "Select an item to rename.", parent=self)
+            return
+
+        win = tk.Toplevel(self)
+        win.title("Rename Item")
+        win.transient(self)
+        ttk.Label(win, text="Display name").grid(row=0, column=0, sticky="w", padx=8, pady=(8, 2))
+        e_display = ttk.Entry(win, width=48)
+        e_display.grid(row=0, column=1, sticky="ew", padx=(0, 8), pady=(8, 2))
+        e_display.insert(0, str(entry["display"]))
+
+        ttk.Label(win, text="Item id").grid(row=1, column=0, sticky="w", padx=8, pady=2)
+        e_id = ttk.Entry(win, width=48)
+        e_id.grid(row=1, column=1, sticky="ew", padx=(0, 8), pady=2)
+        e_id.insert(0, str(entry["item_id"]))
+
+        def suggest_id():
+            suggested = canonicalise_item_key(e_display.get() or str(entry["display"]))
+            e_id.delete(0, tk.END)
+            e_id.insert(0, suggested)
+
+        ttk.Button(win, text="Suggest ID", command=suggest_id).grid(row=2, column=1, sticky="e", padx=(0, 8), pady=2)
+
+        btns = ttk.Frame(win)
+        btns.grid(row=3, column=0, columnspan=2, pady=(8, 8))
+
+        def apply():
+            try:
+                new_id, _ = self.master.rename_item(str(entry["item_id"]), e_display.get(), e_id.get())
+            except ValueError as exc:
+                messagebox.showerror("Rename Failed", str(exc), parent=win)
+                return
+            self.changed = True
+            win.destroy()
+            self._refresh(select_id=new_id)
+
+        ttk.Button(btns, text="Cancel", command=win.destroy).pack(side="right", padx=(0, 6))
+        ttk.Button(btns, text="Apply", command=apply).pack(side="right")
+
+        win.columnconfigure(1, weight=1)
+        e_display.focus_set()
+        win.grab_set()
+        win.bind("<Return>", lambda e: apply())
+
+    def _merge_selected(self):
+        entry = self._selected_entry()
+        if not entry:
+            messagebox.showinfo("Merge Items", "Select an item to merge.", parent=self)
+            return
+        if len(self._inventory) <= 1:
+            messagebox.showinfo("Merge Items", "At least two items are required to merge.", parent=self)
+            return
+
+        others = [data for key, data in self._inventory.items() if key != entry["item_id"]]
+        if not others:
+            messagebox.showinfo("Merge Items", "No other items available to merge with.", parent=self)
+            return
+
+        win = tk.Toplevel(self)
+        win.title("Merge Items")
+        win.transient(self)
+
+        base_label = f"{entry['display']} ({entry['item_id']})"
+        ttk.Label(win, text=f"Base item: {base_label}").grid(row=0, column=0, columnspan=2, sticky="w", padx=8, pady=(8, 4))
+
+        ttk.Label(win, text="Merge with").grid(row=1, column=0, sticky="w", padx=8)
+        option_map: Dict[str, str] = {}
+        options: List[str] = []
+        for other in others:
+            label = f"{other['display']} ({other['item_id']})"
+            option_map[label] = other["item_id"]
+            options.append(label)
+
+        other_var = tk.StringVar(value=options[0])
+        combo = ttk.Combobox(win, textvariable=other_var, values=options, state="readonly", width=46)
+        combo.grid(row=1, column=1, sticky="ew", padx=(0, 8), pady=(0, 4))
+
+        keep_var = tk.StringVar(value="base")
+        radio_base = ttk.Radiobutton(win, text=f"Keep {base_label}", variable=keep_var, value="base")
+        radio_base.grid(row=2, column=0, columnspan=2, sticky="w", padx=8)
+        radio_other = ttk.Radiobutton(win, text="", variable=keep_var, value="other")
+        radio_other.grid(row=3, column=0, columnspan=2, sticky="w", padx=8)
+
+        def update_radio_label(*_):
+            selection = other_var.get()
+            other_id = option_map.get(selection)
+            if other_id:
+                other_entry = self._inventory.get(other_id, {})
+                text = f"Keep {other_entry.get('display', other_id)} ({other_id})"
+            else:
+                text = "Keep selected item"
+            radio_other.configure(text=text)
+
+        update_radio_label()
+        other_var.trace_add("write", update_radio_label)
+
+        btns = ttk.Frame(win)
+        btns.grid(row=4, column=0, columnspan=2, pady=(10, 8))
+
+        def apply():
+            selection = other_var.get()
+            other_id = option_map.get(selection)
+            if not other_id:
+                messagebox.showerror("Merge Items", "Choose the item to merge with.", parent=win)
+                return
+            keep_choice = keep_var.get()
+            keep_id = entry["item_id"] if keep_choice == "base" else other_id
+            confirm = messagebox.askyesno(
+                "Confirm Merge",
+                f"Merge '{entry['item_id']}' and '{other_id}'?\n"
+                f"Items referencing the removed id will point to '{keep_id}'.",
+                parent=win,
+            )
+            if not confirm:
+                return
+            try:
+                kept_id = self.master.merge_items(str(entry["item_id"]), other_id, keep_id)
+            except ValueError as exc:
+                messagebox.showerror("Merge Failed", str(exc), parent=win)
+                return
+            self.changed = True
+            win.destroy()
+            self._refresh(select_id=kept_id)
+
+        ttk.Button(btns, text="Cancel", command=win.destroy).pack(side="right", padx=(0, 6))
+        ttk.Button(btns, text="Merge", command=apply).pack(side="right")
+
+        win.columnconfigure(1, weight=1)
+        combo.focus_set()
+        win.grab_set()
+        win.bind("<Return>", lambda e: apply())
 
 class TierOverridesDialog(tk.Toplevel):
     def __init__(self, master, items: List[str], default_tier: str, overrides: Dict[str, str], base_map: Dict[str, str | None]):

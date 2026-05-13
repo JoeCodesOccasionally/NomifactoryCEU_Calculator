@@ -1,7 +1,79 @@
 [
   {
+    "item": "advanced_integrated_circuit_hv_circuit",
+    "rate": 1.0,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "advanced_integrated_circuit_hv_circuit",
+    "rate": 0.25,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "liquid_rubber_mb",
+    "rate": 1296.0,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "centrifuged_rubber_wood",
+    "rate": 10.0,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 5.0,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.45,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.4,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
     "item": "polyethylene_bar",
     "rate": 0.23,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.5,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.6,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.8,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 1.0,
+    "tier": "MV",
+    "overrides": {}
+  },
+  {
+    "item": "polyethylene_bar",
+    "rate": 0.3,
     "tier": "MV",
     "overrides": {}
   },
@@ -31,19 +103,7 @@
   },
   {
     "item": "polyethylene_bar",
-    "rate": 0.3,
-    "tier": "MV",
-    "overrides": {}
-  },
-  {
-    "item": "polyethylene_bar",
     "rate": 0.2,
-    "tier": "MV",
-    "overrides": {}
-  },
-  {
-    "item": "polyethylene_bar",
-    "rate": 1.0,
     "tier": "MV",
     "overrides": {}
   },
@@ -56,32 +116,6 @@
   {
     "item": "Liquid Polyethylene_mb",
     "rate": 100.0,
-    "tier": "LV",
-    "overrides": {}
-  },
-  {
-    "item": "<deepmoblearning:polymer_clay>",
-    "rate": 0.9333,
-    "tier": "MV",
-    "overrides": {}
-  },
-  {
-    "item": "<deepmoblearning:polymer_clay>",
-    "rate": 0.9333,
-    "tier": "LV",
-    "overrides": {}
-  },
-  {
-    "item": "<deepmoblearning:polymer_clay>",
-    "rate": 0.9333,
-    "tier": "LV",
-    "overrides": {
-      "<thermalfoundation:material:895>": "HV"
-    }
-  },
-  {
-    "item": "<minecraft:ender_pearl>",
-    "rate": 0.233325,
     "tier": "LV",
     "overrides": {}
   }

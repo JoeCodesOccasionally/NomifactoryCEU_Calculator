@@ -326,6 +326,409 @@
       "gt_recipe": true,
       "operating_voltage": "LV",
       "notes": null
+    },
+    {
+      "id": "minecraft_gravel",
+      "machine": "Forge Hammer",
+      "time_s": 0.5,
+      "inputs": {
+        "cobblestone": 1.0
+      },
+      "outputs": {
+        "minecraft_gravel": 1.0
+      },
+      "base_eut": 16.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "steam_mb",
+      "machine": "Fluid Heater",
+      "time_s": 1.5,
+      "inputs": {
+        "water_mb": 6.0
+      },
+      "outputs": {
+        "steam_mb": 960.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "centrifuged_rubber_wood",
+      "machine": "Centrifuge",
+      "time_s": 10.0,
+      "inputs": {
+        "rubber_wood": 1.0
+      },
+      "outputs": {
+        "centrifuged_rubber_wood": 1.0,
+        "sticky_resin": 0.5,
+        "plant_ball": 0.375,
+        "carbon_dust": 0.25
+      },
+      "base_eut": 20.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "liquid_rubber_mb",
+      "machine": "Chemical Reactor",
+      "time_s": 30.0,
+      "inputs": {
+        "raw_rubber_pulp": 9.0,
+        "sulfur_dust": 1.0
+      },
+      "outputs": {
+        "liquid_rubber_mb": 1296.0
+      },
+      "base_eut": 16.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "advanced_integrated_circuit_hv_circuit",
+      "machine": "Circuit Assembler",
+      "time_s": 40.0,
+      "inputs": {
+        "good_integrated_circuit_mv_circuit": 2.0,
+        "integrated_circuit": 2.0,
+        "ram": 2.0,
+        "transistor": 4.0,
+        "fine_electrum_wire": 8.0,
+        "annealed_copper_bolt": 8.0,
+        "liquid_soldering_alloy_mb": 72.0
+      },
+      "outputs": {
+        "advanced_integrated_circuit_hv_circuit": 1.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "good_integrated_circuit_mv_circuit",
+      "machine": "Circuit Assembler",
+      "time_s": 20.0,
+      "inputs": {
+        "good_circuit_board": 1.0,
+        "integrated_logic_circuit_lv_circuit": 2.0,
+        "resistor": 2.0,
+        "diode": 2.0,
+        "fine_gold_wire": 4.0,
+        "silver_bolt": 4.0
+      },
+      "outputs": {
+        "good_integrated_circuit_mv_circuit": 1.0
+      },
+      "base_eut": 24.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "integrated_logic_circuit_lv_circuit",
+      "machine": "Circuit Assembler",
+      "time_s": 10.0,
+      "inputs": {
+        "integrated_circuit": 1.0,
+        "resistor": 2.0,
+        "diode": 2.0,
+        "fine_copper_wire": 2.0,
+        "tin_bolt": 2.0,
+        "liquid_soldering_alloy_mb": 72.0
+      },
+      "outputs": {
+        "integrated_logic_circuit_lv_circuit": 1.0
+      },
+      "base_eut": 16.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "integrated_circuit",
+      "machine": "Cutting Saw",
+      "time_s": 67.5,
+      "inputs": {
+        "integrated_logic_circuit_wafer": 1.0,
+        "distilled_water_liquid_mb": 135.0
+      },
+      "outputs": {
+        "integrated_circuit": 8.0
+      },
+      "base_eut": 64.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "distilled_water_liquid_mb",
+      "machine": "Distillery",
+      "time_s": 8.0,
+      "inputs": {
+        "water_mb": 288.0
+      },
+      "outputs": {
+        "distilled_water_liquid_mb": 260.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "integrated_logic_circuit_wafer",
+      "machine": "Precision Laser Engraver",
+      "time_s": 45.0,
+      "inputs": {
+        "silicon_wafer": 1.0
+      },
+      "outputs": {
+        "integrated_logic_circuit_wafer": 1.0
+      },
+      "base_eut": 120.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "silicon_wafer",
+      "machine": "Cutting Saw",
+      "time_s": 30.0,
+      "inputs": {
+        "monocrystalline_silicone_boul": 1.0,
+        "distilled_water_liquid_mb": 60.0
+      },
+      "outputs": {
+        "silicon_wafer": 16.0
+      },
+      "base_eut": 64.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "monocrystalline_silicone_boul",
+      "machine": "Blast Furnace",
+      "time_s": 450.0,
+      "inputs": {
+        "silicon_dust": 32.0,
+        "small_pile_of_gallium_arsenide": 1.0
+      },
+      "outputs": {
+        "monocrystalline_silicone_boul": 1.0
+      },
+      "base_eut": 120.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "smd_resistor",
+      "machine": "Assembler",
+      "time_s": 8.0,
+      "inputs": {
+        "carbon_dust": 1.0,
+        "fine_electrum_wire": 4.0
+      },
+      "outputs": {
+        "smd_resistor": 16.0
+      },
+      "base_eut": 480.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "smd_diode",
+      "machine": "Assembler",
+      "time_s": 10.0,
+      "inputs": {
+        "gallium_arsenide_dust": 1.0,
+        "fine_platinum_wire": 8.0,
+        "liquid_polyethylene_mb": 288.0
+      },
+      "outputs": {
+        "smd_diode": 1.0
+      },
+      "base_eut": 480.0,
+      "base_voltage": "HV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "resistor",
+      "machine": "Assembler",
+      "time_s": 8.0,
+      "inputs": {
+        "carbon_dust": 1.0,
+        "fine_annealed_copper_wire": 4.0,
+        "glue": 100.0
+      },
+      "outputs": {
+        "resistor": 2.0
+      },
+      "base_eut": 6.0,
+      "base_voltage": "ULV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "diode",
+      "machine": "Assembler",
+      "time_s": 20.0,
+      "inputs": {
+        "fine_annealed_copper_wire": 4.0,
+        "silicon_wafer": 1.0,
+        "liquid_polyethylene_mb": 144.0
+      },
+      "outputs": {
+        "diode": 4.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "ram",
+      "machine": "Cutting Saw",
+      "time_s": 45.0,
+      "inputs": {
+        "ram_wafer": 1.0,
+        "lubricant_mb": 67.0
+      },
+      "outputs": {
+        "ram": 32.0
+      },
+      "base_eut": 96.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "ram_wafer",
+      "machine": "Precision Laser Engraver",
+      "time_s": 45.0,
+      "inputs": {
+        "silicon_wafer": 1.0
+      },
+      "outputs": {
+        "ram_wafer": 1.0
+      },
+      "base_eut": 120.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "transistor",
+      "machine": "Assembler",
+      "time_s": 8.0,
+      "inputs": {
+        "silicon_plate": 1.0,
+        "fine_tin_wire": 6.0,
+        "liquid_polyethylene_mb": 144.0
+      },
+      "outputs": {
+        "transistor": 8.0
+      },
+      "base_eut": 120.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "fine_tin_wire",
+      "machine": "Wiremill",
+      "time_s": 11.8,
+      "inputs": {
+        "tin_ingot": 1.0
+      },
+      "outputs": {
+        "fine_tin_wire": 8.0
+      },
+      "base_eut": 7.0,
+      "base_voltage": "ULV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "annealed_copper_bolt",
+      "machine": "Extruder",
+      "time_s": 0.75,
+      "inputs": {
+        "annealed_copper_ingot": 1.0
+      },
+      "outputs": {
+        "annealed_copper_bolt": 8.0
+      },
+      "base_eut": 120.0,
+      "base_voltage": "MV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "liquid_soldering_alloy_mb",
+      "machine": "Extractor",
+      "time_s": 7.25,
+      "inputs": {
+        "soldering_alloy_dust": 1.0
+      },
+      "outputs": {
+        "liquid_soldering_alloy_mb": 144.0
+      },
+      "base_eut": 30.0,
+      "base_voltage": "LV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
+    },
+    {
+      "id": "soldering_alloy_dust",
+      "machine": "Mixer",
+      "time_s": 10.0,
+      "inputs": {
+        "tin_dust": 6.0,
+        "lead_dust": 3.0,
+        "antimony_dust": 1.0
+      },
+      "outputs": {
+        "soldering_alloy_dust": 10.0
+      },
+      "base_eut": 7.0,
+      "base_voltage": "ULV",
+      "gt_recipe": true,
+      "operating_voltage": "LV",
+      "notes": null
     }
   ],
   "active_by_output": {
@@ -346,11 +749,36 @@
     "oxygen_gas_mb": "silicon",
     "methane_mb": "methane_mb",
     "hydrogen_mb": "hydrogen_mb",
-    "carbon_dust": "hydrogen_mb",
+    "carbon_dust": "centrifuged_rubber_wood",
     "silicon_dioxide": "silicon_dioxide",
     "glass_dust": "glass_dust",
     "silicon": "silicon",
     "liquid_polyethylene_mb": "Liquid Polyethylene_mb",
-    "polyethylene_bar": "polyethylene_bar"
+    "polyethylene_bar": "polyethylene_bar",
+    "minecraft_gravel": "minecraft_gravel",
+    "steam_mb": "steam_mb",
+    "centrifuged_rubber_wood": "centrifuged_rubber_wood",
+    "sticky_resin": "centrifuged_rubber_wood",
+    "plant_ball": "centrifuged_rubber_wood",
+    "liquid_rubber_mb": "liquid_rubber_mb",
+    "advanced_integrated_circuit_hv_circuit": "advanced_integrated_circuit_hv_circuit",
+    "good_integrated_circuit_mv_circuit": "good_integrated_circuit_mv_circuit",
+    "integrated_logic_circuit_lv_circuit": "integrated_logic_circuit_lv_circuit",
+    "integrated_circuit": "integrated_circuit",
+    "distilled_water_liquid_mb": "distilled_water_liquid_mb",
+    "integrated_logic_circuit_wafer": "integrated_logic_circuit_wafer",
+    "silicon_wafer": "silicon_wafer",
+    "monocrystalline_silicone_boul": "monocrystalline_silicone_boul",
+    "smd_resistor": "smd_resistor",
+    "smd_diode": "smd_diode",
+    "resistor": "resistor",
+    "diode": "diode",
+    "ram": "ram",
+    "ram_wafer": "ram_wafer",
+    "transistor": "transistor",
+    "fine_tin_wire": "fine_tin_wire",
+    "annealed_copper_bolt": "annealed_copper_bolt",
+    "liquid_soldering_alloy_mb": "liquid_soldering_alloy_mb",
+    "soldering_alloy_dust": "soldering_alloy_dust"
   }
 }

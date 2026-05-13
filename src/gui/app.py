@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import re
 import tkinter as tk
+from collections import defaultdict
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
 from typing import Dict, List, Optional, Tuple
@@ -28,7 +29,7 @@ from src.core.models import Recipe, RecipeBook
 from src.core.plan import Planner
 from src.core.recipes import load_recipe_book, save_recipe_book
 from src.core.oc import VOLTAGE_BY_TIER
-from .dialogs import AddEditRecipeDialog, ManageActivesDialog
+from .dialogs import AddEditRecipeDialog, ManageActivesDialog, ManageItemsDialog
 from .widgets import AutocompleteEntry, make_search_provider
 from .views import PlanTree, ChainCanvas
 
@@ -364,6 +365,7 @@ class App(tk.Tk):
         fm.add_command(label="Import Recipes from CSV…", command=self.import_recipes_from_csv)
         fm.add_separator()
         fm.add_command(label="Add Recipe", command=self.add_recipe_dialog)
+        fm.add_command(label="Manage Items…", command=self.open_item_manager)
         fm.add_command(label="Manage Active by Output", command=self.manage_actives_dialog)
         fm.add_separator()
         fm.add_command(label="Exit", command=self.destroy)
@@ -376,6 +378,214 @@ class App(tk.Tk):
 
     def _set_status(self, s: str):
         self.status.set(s)
+
+    def open_item_manager(self):
+        dlg = ManageItemsDialog(self)
+        self.wait_window(dlg)
+        if getattr(dlg, "changed", False):
+            # Status already set during item operations; keep it unless cleared.
+            pass
+
+    def get_item_inventory(self) -> List[Dict[str, object]]:
+        stats: dict[str, dict[str, object]] = defaultdict(lambda: {"recipes": set(), "inputs": 0, "outputs": 0})
+        for recipe in self.rb.recipes:
+            for item_id in recipe.inputs.keys():
+                entry = stats[item_id]
+                entry["recipes"] = entry.get("recipes", set())
+                entry["recipes"].add(recipe.id)
+                entry["inputs"] = entry.get("inputs", 0) + 1
+            for item_id in recipe.outputs.keys():
+                entry = stats[item_id]
+                entry["recipes"] = entry.get("recipes", set())
+                entry["recipes"].add(recipe.id)
+                entry["outputs"] = entry.get("outputs", 0) + 1
+
+        known_items: set[str] = set(stats.keys())
+        known_items.update(self.items_map.keys())
+        known_items.update(self.rb.active_by_output.keys())
+        known_items.update(self.tier_overrides.keys())
+        known_items.update(self._last_nodes_flat)
+
+        display_lookup: Dict[str, str] = {}
+        for item_id in known_items:
+            if not item_id:
+                continue
+            display = self.items_map.get(item_id)
+            if not display:
+                display = item_id.replace("_", " ").strip().title() or item_id
+            display_lookup[item_id] = display
+
+        display_index: Dict[str, List[str]] = defaultdict(list)
+        for item_id, display in display_lookup.items():
+            display_index[display.casefold()].append(item_id)
+
+        inventory: List[Dict[str, object]] = []
+        for item_id in known_items:
+            if not item_id:
+                continue
+            display = display_lookup.get(item_id, item_id)
+            data = stats.get(item_id, {"recipes": set(), "inputs": 0, "outputs": 0})
+            recipe_ids = set(data.get("recipes", set()))
+            recipe_count = len(recipe_ids)
+            issues: List[str] = []
+            issue_types: List[str] = []
+
+            if not re.fullmatch(r"[a-z0-9_]+", item_id):
+                issues.append("Malformed id (only a-z0-9_ expected)")
+                issue_types.append("malformed")
+
+            dup_candidates = [other for other in display_index[display.casefold()] if other != item_id]
+            if dup_candidates:
+                sample = ", ".join(sorted(dup_candidates)[:3])
+                if len(dup_candidates) > 3:
+                    sample += ", …"
+                issues.append(f"Duplicate display with {sample}")
+                issue_types.append("duplicate")
+
+            if recipe_count == 0:
+                issues.append("Unused in recipes")
+                issue_types.append("unused")
+
+            priority = 0
+            if any(t in {"malformed", "duplicate"} for t in issue_types):
+                priority = 2
+            elif "unused" in issue_types:
+                priority = 1
+
+            inventory.append(
+                {
+                    "item_id": item_id,
+                    "display": display,
+                    "recipe_count": recipe_count,
+                    "input_count": data.get("inputs", 0),
+                    "output_count": data.get("outputs", 0),
+                    "issues": issues,
+                    "issue_types": issue_types,
+                    "priority": priority,
+                    "issue_text": "; ".join(issues),
+                }
+            )
+
+        inventory.sort(key=lambda entry: (-entry["priority"], entry["display"].lower(), entry["item_id"]))
+        return inventory
+
+    def _apply_item_mutation(self, status: str, display_overrides: Optional[Dict[str, str]] = None) -> None:
+        self._save_recipes()
+        rows = build_items_index(self.rb)
+        if display_overrides:
+            for row in rows:
+                override = display_overrides.get(row.registry)
+                if override:
+                    row.display = override
+        save_items_index(rows, ITEMS_DB_PATH)
+        self._load_items()
+        self._last_nodes_flat = []
+        self.plan_tree.fill(None)
+        self.chain_canvas.draw_plan(None)
+        if hasattr(self, "btn_overrides"):
+            self.btn_overrides.configure(state="disabled")
+        self.total_eut_var.set("Total EU/t: 0")
+        self._save_history()
+        self._set_status(status)
+
+    def rename_item(self, current_id: str, new_display: str, new_id: Optional[str] = None) -> Tuple[str, str]:
+        current_id = (current_id or "").strip()
+        if not current_id:
+            raise ValueError("Select an item to rename.")
+
+        display = (new_display or "").strip()
+        if not display:
+            raise ValueError("Display name is required.")
+
+        candidate = (new_id or "").strip()
+        candidate = canonicalise_item_key(candidate or display)
+
+        if candidate != current_id and candidate in self.items_map:
+            raise ValueError(f"Item id '{candidate}' already exists.")
+
+        if not re.fullmatch(r"[a-z0-9_]+", candidate):
+            raise ValueError("Item id must contain only lowercase letters, digits, and underscores.")
+
+        old_display = self.items_map.get(current_id, current_id.replace("_", " ").title())
+        changed = candidate != current_id or display != old_display
+        if not changed:
+            return candidate, display
+
+        if candidate != current_id:
+            for recipe in self.rb.recipes:
+                if current_id in recipe.inputs:
+                    amt = recipe.inputs.pop(current_id)
+                    recipe.inputs[candidate] = recipe.inputs.get(candidate, 0.0) + amt
+                if current_id in recipe.outputs:
+                    amt = recipe.outputs.pop(current_id)
+                    recipe.outputs[candidate] = recipe.outputs.get(candidate, 0.0) + amt
+
+            if current_id in self.rb.active_by_output:
+                rid = self.rb.active_by_output.pop(current_id)
+                if candidate not in self.rb.active_by_output:
+                    self.rb.active_by_output[candidate] = rid
+
+            if current_id in self.tier_overrides:
+                self.tier_overrides[candidate] = self.tier_overrides.pop(current_id)
+
+            self._last_nodes_flat = [candidate if it == current_id else it for it in self._last_nodes_flat]
+
+            for entry in self.history_entries:
+                if entry.get("item") == current_id:
+                    entry["item"] = candidate
+                overrides = entry.get("overrides", {})
+                if current_id in overrides:
+                    if candidate not in overrides:
+                        overrides[candidate] = overrides[current_id]
+                    overrides.pop(current_id, None)
+
+        display_overrides = {candidate: display}
+        self._apply_item_mutation(f"Item '{current_id}' renamed to '{candidate}'. Rebuild plans to refresh.", display_overrides)
+        return candidate, display
+
+    def merge_items(self, item_a: str, item_b: str, keep_id: str) -> str:
+        item_a = (item_a or "").strip()
+        item_b = (item_b or "").strip()
+        keep_id = (keep_id or "").strip()
+        if not item_a or not item_b:
+            raise ValueError("Choose two items to merge.")
+        if item_a == item_b:
+            raise ValueError("Cannot merge an item with itself.")
+        if keep_id not in {item_a, item_b}:
+            raise ValueError("Keep id must be one of the selected items.")
+
+        drop_id = item_b if keep_id == item_a else item_a
+
+        for recipe in self.rb.recipes:
+            if drop_id in recipe.inputs:
+                amt = recipe.inputs.pop(drop_id)
+                recipe.inputs[keep_id] = recipe.inputs.get(keep_id, 0.0) + amt
+            if drop_id in recipe.outputs:
+                amt = recipe.outputs.pop(drop_id)
+                recipe.outputs[keep_id] = recipe.outputs.get(keep_id, 0.0) + amt
+
+        drop_active = self.rb.active_by_output.pop(drop_id, None)
+        if drop_active and keep_id not in self.rb.active_by_output:
+            self.rb.active_by_output[keep_id] = drop_active
+
+        if drop_id in self.tier_overrides and keep_id not in self.tier_overrides:
+            self.tier_overrides[keep_id] = self.tier_overrides[drop_id]
+        self.tier_overrides.pop(drop_id, None)
+
+        self._last_nodes_flat = [keep_id if it == drop_id else it for it in self._last_nodes_flat]
+
+        for entry in self.history_entries:
+            if entry.get("item") == drop_id:
+                entry["item"] = keep_id
+            overrides = entry.get("overrides", {})
+            if drop_id in overrides:
+                if keep_id not in overrides:
+                    overrides[keep_id] = overrides[drop_id]
+                overrides.pop(drop_id, None)
+
+        status = f"Merged '{drop_id}' into '{keep_id}'. Rebuild plans to refresh."
+        self._apply_item_mutation(status)
+        return keep_id
 
     # Actions
     def add_recipe_dialog(self):
